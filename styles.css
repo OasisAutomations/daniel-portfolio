@@ -4,7 +4,7 @@
   --radius:14px; --wrap:1040px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:170px}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--teal2)}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
@@ -12,9 +12,11 @@ a{color:var(--teal2)}
 .print-only{display:none}
 
 .topbar{position:sticky;top:0;z-index:5;background:rgba(23,28,34,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
-.brand{color:var(--text);text-decoration:none;font-weight:700;display:flex;align-items:center;gap:10px;white-space:nowrap}
-.mono{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--tealbg);color:var(--teal2);font-size:13px;letter-spacing:.5px;border:1px solid rgba(43,179,168,.35)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;min-height:60px;padding:10px 0;gap:16px}
+.brand{color:var(--text);text-decoration:none;font-weight:700;display:flex;align-items:center;gap:14px;white-space:nowrap}
+.avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;object-position:50% 18%;flex-shrink:0;border:2px solid rgba(43,179,168,.35);background:var(--card)}
+ .hero-name{display:contents}
+.avatar-print{display:none}
 nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;white-space:nowrap}
@@ -83,12 +85,17 @@ h3{margin:0;font-size:18px}
 .foot{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13px;text-align:center}
 
 @media (max-width:860px){
+  .avatar{width:96px;height:96px}
+  html{scroll-padding-top:130px}
   .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
   .certs{grid-template-columns:repeat(2,minmax(0,1fr))}
   .two{grid-template-columns:1fr;gap:0}
 }
 @media (max-width:640px){
   nav{display:none}
+  html{scroll-padding-top:100px}
+  .avatar{width:72px;height:72px}
+  .topbar-inner{padding:8px 0}
   .hero{padding:56px 0 44px}
   .lede{font-size:16.5px}
   .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
@@ -115,7 +122,9 @@ h3{margin:0;font-size:18px}
   #contact{display:none!important}
   .hero,.section,.section.alt,.contact{background:none!important;border:0!important;padding:0 0 12pt!important;text-align:left}
   .wrap{max-width:none;padding:0}
-  h1{font-size:24pt;letter-spacing:0}
+  .hero-name{display:flex!important;align-items:center;gap:12pt;margin:0 0 6pt}
+  .avatar-print{display:block!important;width:56pt;height:56pt;border-radius:50%;object-fit:cover;object-position:50% 18%;flex-shrink:0;border:0}
+  h1{font-size:24pt;letter-spacing:0;margin:0}
   .role{font-size:13pt;margin:2pt 0 6pt}
   .eyebrow{display:none}
   .lede,.two p,.what ul,.tool p,.feat,.contact p{color:#222!important}
